@@ -184,9 +184,9 @@ grid_all = np.stack(
 print(grid_all.shape) 
 
 
-grid_mean = grid_all.mean(axis=(0, 1, 2), keepdims=True)  # (1,1,1,4)
-grid_std  = grid_all.std(axis=(0, 1, 2), keepdims=True) + 1e-6
-grid_all  = (grid_all - grid_mean) / grid_std
+# grid_mean = grid_all.mean(axis=(0, 1, 2), keepdims=True)  # (1,1,1,4)
+# grid_std  = grid_all.std(axis=(0, 1, 2), keepdims=True) + 1e-6
+# grid_all  = (grid_all - grid_mean) / grid_std
 
 mask_valid = ~df_scalar[feature_cols + ["RT"]].isna().any(axis=1)
 df_scalar = df_scalar[mask_valid]
@@ -241,6 +241,8 @@ print("X_grid:", X_grid.shape)  # (n_samples, 24, H, W, 1)
 print("X_seq: ", X_seq.shape)   # (n_samples, 24, n_scalar)
 print("Y:     ", Y.shape)       # (n_samples, 24)
 
+
+#######################################################
 
 import tensorflow as tf
 
